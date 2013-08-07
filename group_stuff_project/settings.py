@@ -127,7 +127,7 @@ INSTALLED_APPS = (
     'south',
     'social_auth',
 
-    'files_list',
+    'group_stuff',
 )
 
 # A sample logging configuration. The only tangible logging
