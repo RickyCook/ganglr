@@ -1,5 +1,7 @@
 admin/
 build/
+components/
+node_modules/
 revisable_head/
 
 *.pyc

@@ -1,5 +1,9 @@
 # Django settings for ganglr project.
 
+import os.path
+
+PWD = os.path.dirname(os.path.realpath(__file__ ))
+
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
@@ -39,10 +43,12 @@ STATIC_URL = '/static/'
 # Additional locations of static files
 STATICFILES_DIRS = (
 )
+BOWER_COMPONENTS_ROOT = os.path.join(PWD, '../components')
 
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
+    'djangobower.finders.BowerFinder',
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
@@ -74,6 +80,7 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    'djangobower',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -124,3 +131,4 @@ LOGGING = {
 }
 
 from settings_local import *
+from bower_deps import *
