@@ -9,121 +9,121 @@ class Migration(SchemaMigration):
 
     def forwards(self, orm):
         # Adding model 'Poster'
-        db.create_table(u'group_stuff_poster', (
+        db.create_table(u'ganglr_poster', (
             ('version_id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('first_seen', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
             ('external_id', self.gf('django.db.models.fields.IntegerField')()),
             ('display_pic', self.gf('django.db.models.fields.files.ImageField')(max_length=100)),
             ('display_name', self.gf('django.db.models.fields.CharField')(max_length=255)),
-            ('head', self.gf('revisable_head.models.HeadForeignKey')(related_name='+', to=orm['group_stuff.PosterHead'])),
+            ('head', self.gf('revisable_head.models.HeadForeignKey')(related_name='+', to=orm['ganglr.PosterHead'])),
         ))
-        db.send_create_signal(u'group_stuff', ['Poster'])
+        db.send_create_signal(u'ganglr', ['Poster'])
 
         # Adding model 'PosterHead'
-        db.create_table(u'group_stuff_posterhead', (
+        db.create_table(u'ganglr_posterhead', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('latest', self.gf('django.db.models.fields.related.OneToOneField')(related_name='+', unique=True, to=orm['group_stuff.Poster'])),
+            ('latest', self.gf('django.db.models.fields.related.OneToOneField')(related_name='+', unique=True, to=orm['ganglr.Poster'])),
         ))
-        db.send_create_signal(u'group_stuff', ['PosterHead'])
+        db.send_create_signal(u'ganglr', ['PosterHead'])
 
         # Adding model 'Post'
-        db.create_table(u'group_stuff_post', (
+        db.create_table(u'ganglr_post', (
             ('version_id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('first_seen', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('poster', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['group_stuff.Poster'])),
-            ('parent', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['group_stuff.Post'])),
+            ('poster', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['ganglr.Poster'])),
+            ('parent', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['ganglr.Post'])),
             ('content_text', self.gf('django.db.models.fields.TextField')()),
-            ('head', self.gf('revisable_head.models.HeadForeignKey')(related_name='+', to=orm['group_stuff.PostHead'])),
+            ('head', self.gf('revisable_head.models.HeadForeignKey')(related_name='+', to=orm['ganglr.PostHead'])),
         ))
-        db.send_create_signal(u'group_stuff', ['Post'])
+        db.send_create_signal(u'ganglr', ['Post'])
 
         # Adding model 'PostHead'
-        db.create_table(u'group_stuff_posthead', (
+        db.create_table(u'ganglr_posthead', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('latest', self.gf('django.db.models.fields.related.OneToOneField')(related_name='+', unique=True, to=orm['group_stuff.Post'])),
+            ('latest', self.gf('django.db.models.fields.related.OneToOneField')(related_name='+', unique=True, to=orm['ganglr.Post'])),
         ))
-        db.send_create_signal(u'group_stuff', ['PostHead'])
+        db.send_create_signal(u'ganglr', ['PostHead'])
 
         # Adding model 'PostImage'
-        db.create_table(u'group_stuff_postimage', (
+        db.create_table(u'ganglr_postimage', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('post', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['group_stuff.Post'])),
+            ('post', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['ganglr.Post'])),
             ('content', self.gf('django.db.models.fields.files.ImageField')(max_length=100)),
             ('original', self.gf('django.db.models.fields.URLField')(max_length=200)),
         ))
-        db.send_create_signal(u'group_stuff', ['PostImage'])
+        db.send_create_signal(u'ganglr', ['PostImage'])
 
         # Adding model 'PostLink'
-        db.create_table(u'group_stuff_postlink', (
+        db.create_table(u'ganglr_postlink', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('post', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['group_stuff.Post'])),
+            ('post', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['ganglr.Post'])),
             ('content', self.gf('django.db.models.fields.URLField')(max_length=200)),
         ))
-        db.send_create_signal(u'group_stuff', ['PostLink'])
+        db.send_create_signal(u'ganglr', ['PostLink'])
 
 
     def backwards(self, orm):
         # Deleting model 'Poster'
-        db.delete_table(u'group_stuff_poster')
+        db.delete_table(u'ganglr_poster')
 
         # Deleting model 'PosterHead'
-        db.delete_table(u'group_stuff_posterhead')
+        db.delete_table(u'ganglr_posterhead')
 
         # Deleting model 'Post'
-        db.delete_table(u'group_stuff_post')
+        db.delete_table(u'ganglr_post')
 
         # Deleting model 'PostHead'
-        db.delete_table(u'group_stuff_posthead')
+        db.delete_table(u'ganglr_posthead')
 
         # Deleting model 'PostImage'
-        db.delete_table(u'group_stuff_postimage')
+        db.delete_table(u'ganglr_postimage')
 
         # Deleting model 'PostLink'
-        db.delete_table(u'group_stuff_postlink')
+        db.delete_table(u'ganglr_postlink')
 
 
     models = {
-        u'group_stuff.post': {
+        u'ganglr.post': {
             'Meta': {'object_name': 'Post'},
             'content_text': ('django.db.models.fields.TextField', [], {}),
             'first_seen': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'head': ('revisable_head.models.HeadForeignKey', [], {'related_name': "'+'", 'to': u"orm['group_stuff.PostHead']"}),
-            'parent': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['group_stuff.Post']"}),
-            'poster': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['group_stuff.Poster']"}),
+            'head': ('revisable_head.models.HeadForeignKey', [], {'related_name': "'+'", 'to': u"orm['ganglr.PostHead']"}),
+            'parent': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['ganglr.Post']"}),
+            'poster': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['ganglr.Poster']"}),
             'version_id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'})
         },
-        u'group_stuff.poster': {
+        u'ganglr.poster': {
             'Meta': {'object_name': 'Poster'},
             'display_name': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
             'display_pic': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'}),
             'external_id': ('django.db.models.fields.IntegerField', [], {}),
             'first_seen': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'head': ('revisable_head.models.HeadForeignKey', [], {'related_name': "'+'", 'to': u"orm['group_stuff.PosterHead']"}),
+            'head': ('revisable_head.models.HeadForeignKey', [], {'related_name': "'+'", 'to': u"orm['ganglr.PosterHead']"}),
             'version_id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'})
         },
-        u'group_stuff.posterhead': {
+        u'ganglr.posterhead': {
             'Meta': {'object_name': 'PosterHead'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'latest': ('django.db.models.fields.related.OneToOneField', [], {'related_name': "'+'", 'unique': 'True', 'to': u"orm['group_stuff.Poster']"})
+            'latest': ('django.db.models.fields.related.OneToOneField', [], {'related_name': "'+'", 'unique': 'True', 'to': u"orm['ganglr.Poster']"})
         },
-        u'group_stuff.posthead': {
+        u'ganglr.posthead': {
             'Meta': {'object_name': 'PostHead'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'latest': ('django.db.models.fields.related.OneToOneField', [], {'related_name': "'+'", 'unique': 'True', 'to': u"orm['group_stuff.Post']"})
+            'latest': ('django.db.models.fields.related.OneToOneField', [], {'related_name': "'+'", 'unique': 'True', 'to': u"orm['ganglr.Post']"})
         },
-        u'group_stuff.postimage': {
+        u'ganglr.postimage': {
             'Meta': {'object_name': 'PostImage'},
             'content': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'original': ('django.db.models.fields.URLField', [], {'max_length': '200'}),
-            'post': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['group_stuff.Post']"})
+            'post': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['ganglr.Post']"})
         },
-        u'group_stuff.postlink': {
+        u'ganglr.postlink': {
             'Meta': {'object_name': 'PostLink'},
             'content': ('django.db.models.fields.URLField', [], {'max_length': '200'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'post': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['group_stuff.Post']"})
+            'post': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['ganglr.Post']"})
         }
     }
 
-    complete_apps = ['group_stuff']
+    complete_apps = ['ganglr']

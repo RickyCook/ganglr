@@ -1,4 +1,4 @@
-# Django settings for group_stuff project.
+# Django settings for ganglr project.
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -65,10 +65,10 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'group_stuff_project.urls'
+ROOT_URLCONF = 'ganglr_project.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'group_stuff_project.wsgi.application'
+WSGI_APPLICATION = 'ganglr_project.wsgi.application'
 
 TEMPLATE_DIRS = (
 )
@@ -86,7 +86,7 @@ INSTALLED_APPS = (
     'social.apps.django_app.default',
     'south',
 
-    'group_stuff',
+    'ganglr',
 )
 
 AUTHENTICATION_BACKENDS = (

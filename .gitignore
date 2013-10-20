@@ -5,5 +5,5 @@ revisable_head/
 *.pyc
 *.swp
 
-group-stuff.db
+ganglr.db
 settings_local.py
