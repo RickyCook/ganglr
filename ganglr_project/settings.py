@@ -1,7 +1,6 @@
 # Django settings for ganglr project.
 
 import os.path
-
 PWD = os.path.dirname(os.path.realpath(__file__ ))
 
 # Language code for this installation. All choices can be found here:
