@@ -94,7 +94,7 @@ INSTALLED_APPS = (
 
 AUTHENTICATION_BACKENDS = (
       'social.backends.twitter.TwitterOAuth',
-      'social.apps.django_app.utils.BackendWrapper',
+      'social.backends.facebook.FacebookOAuth2',
   )
 
 # A sample logging configuration. The only tangible logging
