@@ -1,8 +1,9 @@
-admin/
 build/
 components/
 node_modules/
 revisable_head/
+static/
+upload/
 
 *.pyc
 *.swp
