@@ -47,3 +47,6 @@ ALLOWED_HOSTS = []
 # although not all choices may be available on all operating systems.
 # In a Windows environment this must be set to your system time zone.
 TIME_ZONE = 'America/Chicago'
+
+# For Django debug toolbar
+INTERNAL_IPS = ('127.0.0.1',)
