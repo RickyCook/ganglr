@@ -9,6 +9,9 @@ urlpatterns = patterns('',
     # url(r'^$', 'ganglr.views.home', name='home'),
     # url(r'^ganglr/', include('ganglr.foo.urls')),
 
+    url(r'^login', 'ganglr.views.login'),
+
+    url('', include('social.apps.django_app.urls', namespace='social')),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/1/', include(api_router.urls)),
