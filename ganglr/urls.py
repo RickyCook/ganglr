@@ -1,3 +1,3 @@
 """
-Group Stuff URLs
+ganglr URLs
 """

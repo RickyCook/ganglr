@@ -1,3 +1,3 @@
 """
-Group Stuff application
+ganglr application
 """
