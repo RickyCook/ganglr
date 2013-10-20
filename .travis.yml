@@ -1,0 +1,8 @@
+language: python
+python:
+  - "2.7"
+install:
+  - sudo pip install -r requirements.txt --use-mirrors
+script:
+  - pep8 group_stuff group_stuff_project --exclude migrations/
+  - pylint --rcfile=conf/pylint.conf group_stuff --ignore migrations/

@@ -1,6 +1,9 @@
+admin/
 build/
+revisable_head/
 
 *.pyc
 *.swp
 
 group-stuff.db
+settings_local.py
