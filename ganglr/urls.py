@@ -1,3 +1,0 @@
-"""
-ganglr URLs
-"""
