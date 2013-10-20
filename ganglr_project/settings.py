@@ -101,9 +101,9 @@ INSTALLED_APPS = (
 )
 
 AUTHENTICATION_BACKENDS = (
-      'social.backends.twitter.TwitterOAuth',
-      'social.backends.facebook.FacebookOAuth2',
-  )
+    'social.backends.twitter.TwitterOAuth',
+    'social.backends.facebook.FacebookOAuth2',
+)
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
