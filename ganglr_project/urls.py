@@ -1,3 +1,5 @@
+from ganglr.api import router as api_router
+
 from django.conf.urls import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
@@ -9,6 +11,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^api/1/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api/1/', include(api_router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 )
 urlpatterns += staticfiles_urlpatterns()
