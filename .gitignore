@@ -10,3 +10,4 @@ upload/
 
 ganglr.db
 settings_local.py
+ganglr_env
