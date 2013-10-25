@@ -161,5 +161,7 @@ SOCIAL_AUTH_PIPELINE = (
     'ganglr.models.social_new_poster',
 )
 
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['read_stream']
+
 from settings_local import *
 from bower_deps import *
